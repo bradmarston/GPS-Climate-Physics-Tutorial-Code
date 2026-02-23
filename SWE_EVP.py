@@ -27,24 +27,23 @@ path = '[your path]'
 import time
 import numpy as np
 import matplotlib.pyplot as plt
+import os
+os.environ["OMP_NUM_THREADS"] = "1"
+os.environ["NUMEXPR_MAX_THREADS"] = "1"
+
 import dedalus.public as d3
 from mpi4py import MPI
 CW = MPI.COMM_WORLD
 import logging
 logger = logging.getLogger(__name__)
 import matplotlib
-import os
-os.environ["OMP_NUM_THREADS"] = "1"
-os.environ["NUMEXPR_MAX_THREADS"] = "1"
-
-
 
 """
 Domain Parameters
 """
 
 Nx = 64 
-Ny = 126
+Ny = 128
 Ly = 20*np.pi
 Lx = 10
 y0 = Ly/4
